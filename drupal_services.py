@@ -76,7 +76,8 @@ class ServicesSessidKey(ServicesSessid):
         BasicServices.__init__(self, url)
         self.domain = domain
         self.key = key
-        self.call('user.login', username, password)
+        self.session = self.call('user.login', username, password)
+        self.sessid = self.session['sessid']
 
     def _build_eval_list(self, method_name, args):
         hash, timestamp, nonce = self._token(method_name)
