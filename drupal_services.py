@@ -95,6 +95,31 @@ class ServicesSessidKey(ServicesSessid):
                 nonce)
 
 
+class ServicesKey(BasicServices):
+    """Drupal Services with keys."""
+    def __init__(self, url, domain, key):
+        BasicServices.__init__(self, url)
+        self.domain = domain
+        self.key = key
+
+    def _build_eval_list(self, method_name, args):
+        hash, timestamp, nonce = self._token(method_name)
+        return ([hash,
+                 self.domain, 
+                 timestamp,
+                 nonce] +
+                map(None, args))
+
+    def _token(self, api_function):
+        timestamp = str(int(time.mktime(time.localtime())))
+        nonce = "".join(random.sample(string.letters+string.digits, 10))
+        return (hmac.new(self.key, "%s;%s;%s;%s" % 
+                         (timestamp, self.domain, nonce, api_function), 
+                         hashlib.sha256).hexdigest(),
+                timestamp,
+                nonce)
+
+
 class DrupalServices: 
     """Drupal services class.  
 
@@ -108,6 +133,9 @@ class DrupalServices:
         elif (config.has_key('username')):
             self.server = ServicesSessid(config['url'], 
                                          config['username'], config['password'])
+        elif (config.has_key('key')):
+            self.server = ServicesKey(config['url'], 
+                                      config['domain'], config['key'])
         else:
             self.server = BasicServices(config['url'])
 
