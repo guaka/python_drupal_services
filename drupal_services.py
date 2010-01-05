@@ -36,13 +36,8 @@ class BasicServices(xmlrpclib.Server):
         self.sessid = self.connection['sessid']
 
     def call(self, method_name, *args):
-        # Maybe there's something more pythonic than eval?
-        return self.__eval('self.' + method_name + 
-                           '(' +
-                           ', '.join(map(repr, 
-                                         self._build_eval_list(method_name, args))) +
-                           ')')
-
+        return getattr(self, method_name)(args)
+                           
     def _build_eval_list(self, method_name, args):
         # method_name is used in ServicesSessidKey
         return args
