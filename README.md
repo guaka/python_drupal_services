@@ -7,5 +7,5 @@ It's loosely based on several pieces of code found elsewhere:
 * http://drupal.org/node/308629
 
 
-[Kasper Souren](Kasper Souren) wrote this a while ago. It's not really been maintained 
+[Kasper Souren](http://guaka.org/) wrote this a while ago. It's not really been maintained 
 for a while but if there's any interest Kasper might get back to this, for a cool project or for money.
