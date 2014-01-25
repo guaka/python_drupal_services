@@ -8,4 +8,6 @@ It's loosely based on several pieces of code found elsewhere:
 
 
 [Kasper Souren](http://guaka.org/) wrote this a while ago. It's not really been maintained 
-for a while but if there's any interest Kasper might get back to this, for a cool project or for money.
+for a while but if there's any interest Kasper might get back to this, for a cool project and/or for money.
+
+See also [this issue about how to continue](https://github.com/guaka/python_drupal_services/issues/2).
