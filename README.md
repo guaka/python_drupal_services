@@ -7,7 +7,6 @@ It's loosely based on several pieces of code found elsewhere:
 * http://drupal.org/node/308629
 
 
-[Kasper Souren](http://guaka.org/) wrote this a while ago. It's not really been maintained 
-for a while but if there's any interest Kasper might get back to this, for a cool project and/or for money.
+It has not been maintained for many years.
 
 See also [this issue about how to continue](https://github.com/guaka/python_drupal_services/issues/2).
